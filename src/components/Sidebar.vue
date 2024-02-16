@@ -33,15 +33,26 @@
             <p class="text-gray-400 font-medium text-base uppercase px-3">Watchlist</p>
             <div class="my-2">
                 <div class="w-full flex gap-4 items-center px-2 py-2">
-                    <div class="w-6 h-6 bg-gray-500 rounded-md">
-
-                    </div>
-                    <p class="text-sm">List</p>
+                    <router-link to="/watchlist-movies" class="w-full" >
+                        <div class="w-full flex justify-between items-center">
+                            <div class="w-full flex gap-4 items-center px-2 py-2">
+                                <div className="w-6 h-6 bg-gray-500 rounded-md"></div>
+                                <p class="text-sm">My Watchlist Movies</p>
+                            </div>
+                        </div>
+                    </router-link>
+                </div>
+                <div class="w-full flex gap-4 items-center px-2 py-2">
+                    <router-link to="/watchlist-tvshows" class="w-full" >
+                        <div class="w-full flex justify-between items-center">
+                            <div class="w-full flex gap-4 items-center px-2 py-2">
+                                <div className="w-6 h-6 bg-gray-500 rounded-md"></div>
+                                <p class="text-sm">My Watchlist TV Shows</p>
+                            </div>
+                        </div>
+                    </router-link>
                 </div>
             </div>
-            <button class="w-full h-full bg-red-500 rounded-md py-2 text-white text-sm font-semibold">
-                Create list
-            </button>
         </div>
     </div>
     <div class="p-3 w-full flex items-center justify-between">

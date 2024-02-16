@@ -2,6 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router';
 import Home from '../views/Home.vue';
 import PopularMovies from '../views/PopularMovies.vue';
 import PopularTVShows from '../views/PopularTvShow.vue';
+import Watchlist from '../views/Watchlist.vue';
+import WatchlistTvShow from '../views/WatchlistTvShow.vue';
 import MovieDetail from '../components/MovieDetail.vue';
 
 const router = createRouter({
@@ -33,7 +35,15 @@ const router = createRouter({
             path: '/detail-tvshows/:id',
             component: MovieDetail,
             props: true
-        }
+        },
+        {
+            path: '/watchlist-movies',
+            component: Watchlist
+        },
+        {
+            path: '/watchlist-tvshows',
+            component: WatchlistTvShow
+        },
     ]
 });
 
