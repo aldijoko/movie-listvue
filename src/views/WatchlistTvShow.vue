@@ -5,7 +5,7 @@
         
       </div>
       <div class="w-full grid grid-cols-5 gap-x-4 gap-y-8 py-5">
-        <WatchlistCard v-for="movie in watchlist" :movie="movie" />
+        <WatchlistCard v-for="movie in watchlist" :movie="movie" :mediaType="getMediaType(movie)"/>
         </div>
     </div>
 </template>
@@ -40,11 +40,14 @@ export default {
             Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3MGJkZTY5Y2FmZmVmMDI5NDQxNmM3MjExNjM2MmYzZCIsInN1YiI6IjYzZTNiMzg3MTI4M2U5MDA4ZTQ4N2U5YyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.VZa2CLidil6FCz2T4qvV1kzGDXkORyS2qHQOf5LwCfc'
           }
         });
-        console.log(response.data.results)
+        // console.log(response.data.results)
         this.watchlist = response.data.results;
       } catch (error) {
         console.error('Error fetching watchlist:', error);
       }
+    },
+    getMediaType(movie) {
+      return this.$route.path.includes('tvshows') ? 'tv' : 'movie';
     }
   }
 };

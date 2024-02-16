@@ -47,7 +47,6 @@ export default {
                     }
                 });
                 this.movies = response.data.results;
-                // console.log(response.data.results)
             } catch (error) {
                 console.error('Error fetching tv shows:', error);
             }
@@ -66,7 +65,7 @@ export default {
                     }
                 });
                 this.movies = response.data.results;
-                console.log(response.data.results)
+                // console.log(response.data.results)
             } catch (error) {
                 console.error('Error searching movies:', error);
             }
@@ -74,7 +73,7 @@ export default {
     },
     computed: {
         filteredMovies() {
-          console.log(this.searchQuery)
+          //console.log(this.searchQuery)
             if (!this.searchQuery) {
                 return this.movies;
             }

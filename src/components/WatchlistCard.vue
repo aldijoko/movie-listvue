@@ -22,24 +22,29 @@
   
   const props = defineProps({
     movie: Object,
+    mediaType: String
   });
   
   const removeFromWatchlist = async () => {
   try {
-    const accountId = '17353149'; // Replace with the user's account ID
-    const sessionId = 'd93e9559a811e1eb92371b476c1e6b77d9bde62c'; // Replace with the user's session ID
+    const accountId = '17353149'; 
+    const sessionId = 'd93e9559a811e1eb92371b476c1e6b77d9bde62c'; 
 
-    // Make a DELETE request to remove the movie from the watchlist
-    const response = await axios.delete(`https://api.themoviedb.org/3/account/${accountId}/watchlist`, {
-      params: {
-        api_key: '70bde69caffef0294416c72116362f3d',
-        session_id: sessionId,
-        media_id: props.movie.id, // Assuming the movie object contains id property
-      },
-    });
+    const response = await axios.post(`https://api.themoviedb.org/3/account/${accountId}/watchlist`, {
+        media_type: props.mediaType,
+        media_id: props.movie.id, 
+        watchlist: false
+        }, {
+        params: {
+            api_key: '70bde69caffef0294416c72116362f3d',
+            session_id: sessionId,
+        }
+        });
 
-    console.log('Movie removed from watchlist:', props.movie);
-    // Optionally, you can also update the UI to reflect the removal of the movie from the watchlist
+    // console.log(response.data, 'Movie removed from watchlist');
+    alert('Movie removed from watchlist');
+    window.location.reload();
+
   } catch (error) {
     console.error('Error removing movie from watchlist:', error);
   }
@@ -47,6 +52,5 @@
   </script>
   
   <style scoped>
-  /* Add your scoped styles here */
   </style>
   

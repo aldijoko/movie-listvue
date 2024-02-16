@@ -69,7 +69,7 @@ export default {
   },
   mounted() {
     const movieId = this.$route.params.id; 
-    console.log("id",movieId)
+    // console.log("id",movieId)
     this.fetchMovieDetails(movieId);
   },
   methods: {
@@ -109,7 +109,7 @@ export default {
         });
       }
 
-        console.log(response.data);
+        // console.log(response.data);
         this.movieDetails = response.data;
       } catch (error) {
         console.error('Error fetching movie details:', error);
@@ -135,41 +135,13 @@ export default {
             session_id: sessionId
           }
         });
-        console.log('Added to watchlist');
+        // console.log('Added to watchlist');
         alert('Added to watchlist');
       } catch (error) {
         console.error('Error adding to watchlist:', error);
       }
     }
   }
-  // methods: {
-  //   async fetchMovieDetails(movieId) {
-  //       try {
-  //     let apiUrl;
-  //     console.log(this.$route.path)
-  //     // Check the current route to determine the API URL
-  //     if (this.$route.path === '/popular-movies') {
-  //       apiUrl = `https://api.themoviedb.org/3/movie/${movieId}`;
-  //     } else if (this.$route.path === '/popular-tvshows') {
-  //       apiUrl = `https://api.themoviedb.org/3/tv/${movieId}/season/1`;
-  //     } else {
-  //       // Default to movie details API
-  //       apiUrl = `https://api.themoviedb.org/3/movie/${movieId}`;
-  //     }
-
-  //     const response = await axios.get(apiUrl, {
-  //       params: {
-  //         api_key: '70bde69caffef0294416c72116362f3d',
-  //         language: 'en-US',
-  //       }
-  //     });
-  //     console.log(response.data);
-  //     this.movieDetails = response.data;
-  //     } catch (error) {
-  //       console.error('Error fetching movie details:', error);
-  //     }
-  //   }
-  // }
 };
 </script>
 

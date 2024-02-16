@@ -31,7 +31,7 @@ export default {
           page: 1
         }
       });
-      console.log(response.data.results)
+      // console.log(response.data.results)
       this.movies = response.data.results;
     } catch (error) {
       console.error('Error fetching movies:', error);
